@@ -1,0 +1,27 @@
+const int reading = 4;
+const int pin17 = 17; 
+const int led = 13;
+
+void setup() {  
+  Serial.begin(9600);    
+  millis();         
+  pinMode(pin17,INPUT);
+  pinMode(reading,INPUT);
+  pinMode(led,OUTPUT);
+//  pinMode(laserPin, OUTPUT);  // Define the digital output interface pin 13 
+  
+}
+
+void loop() {  
+  int sensorValue = digitalRead(reading); // Read pin 4
+
+  Serial.print(sensorValue);
+  Serial.println();
+
+  if (sensorValue == HIGH) {  // Use the actual pin state
+    digitalWrite(led, HIGH);
+  }
+  else {
+    digitalWrite(led, LOW);
+  }
+}
